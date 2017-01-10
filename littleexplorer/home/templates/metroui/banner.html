@@ -1,0 +1,38 @@
+<!-- banner -->
+<div class="banner">
+    {% load staticfiles %}
+	<div class="container">
+		<div class="header">
+			<div class="logo">
+				<h1><a href="#">LittleExplorer毛线球儿</a></h1>
+			</div>
+			<div class="navigation">
+				<span class="menu"><img src="{% static 'images/icon.png' %}" alt="" /></span>
+				<ul class="nav1">
+					<li><a class="scroll" href="#home">首页</a></li>
+					<li><a class="scroll" href="#about-us">关于我们</a></li>
+					<li><a class="scroll" href="#portfolio">原创营记</a></li>
+					<li><a class="scroll" href="#services">露营装备</a></li>
+                    <li><a class="scroll" href="#services">露营文化</a></li>
+                    <li><a class="scroll" href="#services">线路推荐</a></li>
+					<li><a class="scroll" href="#contact-us">联系我们</a></li>
+				</ul>
+				<!-- script for menu -->
+				<script> 
+					$( "span.menu" ).click(function() {
+					$( "ul.nav1" ).slideToggle( 300, function() {
+					 // Animation complete.
+					});
+					});
+				</script>
+				<!-- //script for menu -->
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="banner-info">
+			<h1>THE ULTIMATE COLLECTION OF FREE PSD TEMPLATES!!</h1>
+			<div class="download"><a href="#">DOWNLOAD</a></div>
+		</div>
+	</div>
+</div>
+<!-- //banner -->
