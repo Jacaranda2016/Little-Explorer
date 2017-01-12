@@ -14,9 +14,10 @@ def volton(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'volton/index.html', {'posts':posts})
 
-def article(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'volton/article.html', {'posts':posts})
+def article(request,slug):
+    posts = Post.objects.filter(slug=slug)
+    post = posts[0]
+    return render(request, 'volton/article.html', {'post':post})
 
 def articles(request,page=1):
     after_range_num = 5
