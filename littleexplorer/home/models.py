@@ -36,6 +36,7 @@ class Category(models.Model):
     thumb = models.CharField(max_length=200, null=True)
     summary = models.CharField(max_length=1000, null=True)
     created_date = models.DateTimeField(default=timezone.now)
+    shortUrl = models.CharField(max_length=200, null=True)
     text = RichTextUploadingField()
 
     def __str__(self):

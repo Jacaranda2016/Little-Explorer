@@ -9,83 +9,19 @@
         </div>
     </div>
     <div class="row projects-holder">
+        {% for category in categories %}
         <div class="col-md-4 col-sm-6">
             <div class="project-item">
-                <img src="/static/volton/img/gear.png" alt="">
-
+                <img src="{{category.thumb}}" alt="">
                 <div class="project-hover">
                     <div class="inside">
-                        <h5><a href="#">露营装备</a></h5>
+                        <h5><a href="/category/{{category.shortUrl}}">{{category.title}}</a></h5>
 
-                        <p>装备是个坑，入门请谨慎</p>
+                        <p>{{category.summary}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="project-item">
-                <img src="/static/volton/img/bushcamp.png" alt="">
-
-                <div class="project-hover">
-                    <div class="inside">
-                        <h5><a href="#">原创营记</a></h5>
-
-                        <p>全部营记为站长原创，欢迎带链接转载，拒绝恶意抄袭</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="project-item">
-                <img src="/static/volton/img/bridge.png" alt="">
-
-                <div class="project-hover">
-                    <div class="inside">
-                        <h5><a href="#">近郊一日游</a></h5>
-
-                        <p>刚够潇洒一天的那些地儿</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="project-item">
-                <img src="/static/volton/img/beautyshell.png" alt="">
-
-                <div class="project-hover">
-                    <div class="inside">
-                        <h5><a href="#">随营杂想</a></h5>
-
-                        <p>胡思乱想与偶得</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="project-item">
-                <img src="/static/volton/img/lighthouse.png" alt="">
-
-                <div class="project-hover">
-                    <div class="inside">
-                        <h5><a href="#">热门营记</a></h5>
-                        <p>按地域分类的热门营记</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6">
-            <div class="project-item">
-                <img src="/static/volton/img/sunrise.png" alt="">
-                <div class="project-hover">
-                     <div class="inside">
-                        <h5><a href="#">线路情报</a></h5>
-
-                        <p>收集情报信息，规划露营线路。露营，在路上。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}    
     </div>
 </div>
