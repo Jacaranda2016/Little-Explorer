@@ -14,8 +14,8 @@ def volton(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'volton/index.html', {'posts':posts})
 
-def article(request,slug):
-    posts = Post.objects.filter(slug=slug)
+def article(request,shortUrl):
+    posts = Post.objects.filter(shortUrl=shortUrl)
     post = posts[0]
     return render(request, 'volton/article.html', {'post':post})
 

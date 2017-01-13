@@ -12,6 +12,7 @@ class Post(models.Model):
     thumb = models.CharField(max_length=200, null=True)
     summary = models.CharField(max_length=1000, null=True)
     created_date = models.DateTimeField(default=timezone.now)
+    shortUrl = models.CharField(max_length=200, null=True)
     published_date = models.DateTimeField(blank=True, null=True)
     slug = models.SlugField(max_length=60, blank=True)
 
@@ -20,7 +21,7 @@ class Post(models.Model):
         if not self.id:
             #Only set the slug when the object is created.
             self.slug = slugify(self.title) #Or whatever you want the slug to use
-        super(Blog, self).save(*args, **kwargs)
+        super(Post, self).save(*args, **kwargs)
     def publish(self):
         self.published_date = timezone.now()
         self.save()
