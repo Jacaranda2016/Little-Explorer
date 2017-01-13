@@ -278,7 +278,7 @@ hr {
   position: fixed;
   background-color: #5f6d7e;
   color: white;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 @media screen and (max-width: 1290px) {
   .sidebar-menu {

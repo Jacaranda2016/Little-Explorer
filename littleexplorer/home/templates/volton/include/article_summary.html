@@ -1,0 +1,18 @@
+<div class="page-section" id="about">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="widget-title">{{post.title}}</h1>
+
+            <br>
+            <div class="about-image">
+                <img src="{{post.thumb}}" alt="post.title">
+            </div>
+            <p>{{post.summary|safe}}</p>
+            <br>
+            <div>
+                <a href="/article/{{post.shortUrl}}">阅读全文</a>
+            </div>
+
+        </div>
+    </div>
+</div>

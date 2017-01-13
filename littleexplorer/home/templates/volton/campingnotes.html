@@ -14,6 +14,7 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
+
 {% include 'volton/include/sidebar.html' %}
 {% include 'volton/include/banner.html' %}
 
@@ -21,11 +22,35 @@
 <!-- MAIN CONTENT -->
 <div class="main-content">
     <div class="fluid-container">
+
         <div class="content-wrapper">
-            {% include 'volton/include/article_detail.html' %}
-            {% include 'volton/include/comment.html' %}
-        </d/iv>
+            {% for post in posts %}
+            <div class="page-section">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="widget-title">{{post.title}}</h4>
+                        <br>
+                        <div class="about-image">
+                            <img src="{{post.thumb}}" alt="post.title">
+                        </div>
+                        <p>{{post.summary}}</p>
+
+                    </div>
+                </div>
+                <!-- #article template -->
+                <div>
+                    <a href="/article/{{post.shortUrl}}">阅读全文</a>
+                    <hr>
+                </div>
+                {% endfor %}
+            </div>
+
+            {% include 'volton/include/footer.html' %}
+        </div>
+
     </div>
+
+
 </div>
 
 

@@ -14,6 +14,7 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
+
 {% include 'volton/include/sidebar.html' %}
 {% include 'volton/include/banner.html' %}
 
@@ -23,11 +24,37 @@
     <div class="fluid-container">
 
         <div class="content-wrapper">
-            {% include 'volton/include/article_summary.html' %}
+            {% for post in posts %}
+            <div class="page-section">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="widget-title">{{post.title}}</h4>
 
+                        <p>{{post.text}}
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+                <!-- #article template -->
+                {% endfor %}
+            </div>
+            <!-- Pagination -->
+			<div id="pagination">
+			{% if posts.number > 1%}
+			<a class="prev_active pngf" href="/volton/arts/{{posts.previous_page_number}}"></a>
+			{% endif %}
+			{% for p in page_range %}
+			{% ifequal p posts.number %}
+			<span class="pag_num_act pngf">{{p}}</span>
+			{% else %}
+			<a class="pag_num pngf" href="/volton/arts/{{p}}">{{p}}</a>
+			{% endifequal %}
+			{% endfor %}
+			{% if posts.number < posts.paginator.num_pages %}
+			<a class="next pngf" href="/volton/arts/{{posts.next_page_number}}"></a>
+			{% endif %}
+			</div>
             {% include 'volton/include/category.html' %}
-            {% include 'volton/include/about.html' %}
-            {% include 'volton/include/contact.html' %}
             {% include 'volton/include/footer.html' %}
 
         </div>
