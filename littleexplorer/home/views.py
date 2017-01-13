@@ -8,7 +8,9 @@ from django.template import Context, loader
 def index(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     post = posts[0]
-    return render(request, 'volton/index.html', {'posts': posts, 'post': post})
+    abouts = Post.objects.filter(shortUrl='who-is-little-explorer')
+    about = abouts[0]
+    return render(request, 'volton/index.html', {'posts': posts, 'post': post, 'about': about})
 
 def article(request, shortUrl):
     posts = Post.objects.filter(shortUrl=shortUrl)
@@ -33,4 +35,4 @@ def articles(request, page=1):
         page_range = paginator.page_range[page - after_range_num:page + bevor_range_num]
     else:
         page_range = paginator.page_range[0:int(page) + bevor_range_num]
-    return render(request, 'volton/articles.html', {'posts': posts, 'page_range': page_range})
+    return render(request, 'volton/wholeList.html', {'posts': posts, 'page_range': page_range})
